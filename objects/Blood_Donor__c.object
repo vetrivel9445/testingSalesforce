@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>case study object1</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>Private</externalSharingModel>
+    <label>Blood Donor</label>
+    <nameField>
+        <displayFormat>BD-{000}</displayFormat>
+        <label>Blood donor ID</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Blood Donors</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>Private</sharingModel>
+    <visibility>Public</visibility>
+    <fields>
+        <fullName>DOB__c</fullName>
+        <description>case study</description>
+        <externalId>false</externalId>
+        <inlineHelpText>enter date of birth</inlineHelpText>
+        <label>DOB</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>age__c</fullName>
+        <description>case study calculate age in blood donor</description>
+        <externalId>false</externalId>
+        <formula>YEAR(TODAY())- YEAR( DOB__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>age</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Count__c</fullName>
+        <externalId>false</externalId>
+        <label>Count</label>
+        <summaryForeignKey>blood_coor__c.Blood_Donor__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Email__c</fullName>
+        <description>case study</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter Email address</inlineHelpText>
+        <label>Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>State__c</fullName>
+        <description>case study</description>
+        <externalId>false</externalId>
+        <inlineHelpText>please select state</inlineHelpText>
+        <label>State</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Tamil Nadu</fullName>
+                    <default>false</default>
+                    <label>Tamil Nadu</label>
+                </value>
+                <value>
+                    <fullName>Kerala</fullName>
+                    <default>false</default>
+                    <label>Kerala</label>
+                </value>
+                <value>
+                    <fullName>Karnataka</fullName>
+                    <default>false</default>
+                    <label>Karnataka</label>
+                </value>
+                <value>
+                    <fullName>Andhra Pradesh</fullName>
+                    <default>false</default>
+                    <label>Andhra Pradesh</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Blood Donors</relationshipLabel>
+        <relationshipName>Blood_Donors</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>District__c</fullName>
+        <description>case study</description>
+        <externalId>false</externalId>
+        <inlineHelpText>please select districs</inlineHelpText>
+        <label>District</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>State__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Chennai</fullName>
+                    <default>false</default>
+                    <label>Chennai</label>
+                </value>
+                <value>
+                    <fullName>Madurai</fullName>
+                    <default>false</default>
+                    <label>Madurai</label>
+                </value>
+                <value>
+                    <fullName>Salem</fullName>
+                    <default>false</default>
+                    <label>Salem</label>
+                </value>
+                <value>
+                    <fullName>Dharmapuri</fullName>
+                    <default>false</default>
+                    <label>Dharmapuri</label>
+                </value>
+                <value>
+                    <fullName>Coimbatore</fullName>
+                    <default>false</default>
+                    <label>Coimbatore</label>
+                </value>
+                <value>
+                    <fullName>Tuticorin</fullName>
+                    <default>false</default>
+                    <label>Tuticorin</label>
+                </value>
+                <value>
+                    <fullName>Alappuzha</fullName>
+                    <default>false</default>
+                    <label>Alappuzha</label>
+                </value>
+                <value>
+                    <fullName>Ernakulam</fullName>
+                    <default>false</default>
+                    <label>Ernakulam</label>
+                </value>
+                <value>
+                    <fullName>Kannur</fullName>
+                    <default>false</default>
+                    <label>Kannur</label>
+                </value>
+                <value>
+                    <fullName>Idukki</fullName>
+                    <default>false</default>
+                    <label>Idukki</label>
+                </value>
+                <value>
+                    <fullName>Bagalkot</fullName>
+                    <default>false</default>
+                    <label>Bagalkot</label>
+                </value>
+                <value>
+                    <fullName>Bengaluru Urban</fullName>
+                    <default>false</default>
+                    <label>Bengaluru Urban</label>
+                </value>
+                <value>
+                    <fullName>Bengaluru Rural</fullName>
+                    <default>false</default>
+                    <label>Bengaluru Rural</label>
+                </value>
+                <value>
+                    <fullName>Belagavi</fullName>
+                    <default>false</default>
+                    <label>Belagavi</label>
+                </value>
+                <value>
+                    <fullName>Srikakulam</fullName>
+                    <default>false</default>
+                    <label>Srikakulam</label>
+                </value>
+                <value>
+                    <fullName>Vizianagaram</fullName>
+                    <default>false</default>
+                    <label>Vizianagaram</label>
+                </value>
+                <value>
+                    <fullName>Visakhapatnam</fullName>
+                    <default>false</default>
+                    <label>Visakhapatnam</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Tamil Nadu</controllingFieldValue>
+                <valueName>Chennai</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Tamil Nadu</controllingFieldValue>
+                <valueName>Madurai</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Tamil Nadu</controllingFieldValue>
+                <valueName>Salem</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Tamil Nadu</controllingFieldValue>
+                <valueName>Dharmapuri</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Tamil Nadu</controllingFieldValue>
+                <valueName>Coimbatore</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Tamil Nadu</controllingFieldValue>
+                <valueName>Tuticorin</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Kerala</controllingFieldValue>
+                <valueName>Alappuzha</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Kerala</controllingFieldValue>
+                <valueName>Ernakulam</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Kerala</controllingFieldValue>
+                <valueName>Kannur</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Kerala</controllingFieldValue>
+                <valueName>Idukki</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Karnataka</controllingFieldValue>
+                <valueName>Bagalkot</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Karnataka</controllingFieldValue>
+                <valueName>Bengaluru Urban</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Karnataka</controllingFieldValue>
+                <valueName>Bengaluru Rural</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Karnataka</controllingFieldValue>
+                <valueName>Belagavi</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Andhra Pradesh</controllingFieldValue>
+                <valueName>Srikakulam</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Andhra Pradesh</controllingFieldValue>
+                <valueName>Vizianagaram</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Andhra Pradesh</controllingFieldValue>
+                <valueName>Visakhapatnam</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Phone_No__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter phone Number</inlineHelpText>
+        <label>Phone No</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>Blood_Group__c</fullName>
+        <description>case study blood groups</description>
+        <externalId>false</externalId>
+        <inlineHelpText>please select the blood group</inlineHelpText>
+        <label>Blood Group</label>
+        <required>true</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>A positive</fullName>
+                    <default>false</default>
+                    <label>A positive</label>
+                </value>
+                <value>
+                    <fullName>A negative</fullName>
+                    <default>false</default>
+                    <label>A negative</label>
+                </value>
+                <value>
+                    <fullName>AB positive</fullName>
+                    <default>false</default>
+                    <label>AB positive</label>
+                </value>
+                <value>
+                    <fullName>AB negative</fullName>
+                    <default>false</default>
+                    <label>AB negative</label>
+                </value>
+                <value>
+                    <fullName>B positive</fullName>
+                    <default>false</default>
+                    <label>B positive</label>
+                </value>
+                <value>
+                    <fullName>B negative</fullName>
+                    <default>false</default>
+                    <label>B negative</label>
+                </value>
+                <value>
+                    <fullName>O positive</fullName>
+                    <default>false</default>
+                    <label>O positive</label>
+                </value>
+                <value>
+                    <fullName>O negative</fullName>
+                    <default>false</default>
+                    <label>O negative</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Body_weight__c</fullName>
+        <description>case study</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter body weight in kg</inlineHelpText>
+        <label>Body weight</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Blood_donor_Name__c</fullName>
+        <description>case study</description>
+        <externalId>false</externalId>
+        <label>Blood donor Name</label>
+        <length>18</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>blood_donated_date__c</fullName>
+        <description>case study</description>
+        <externalId>false</externalId>
+        <label>blood donated date</label>
+        <required>true</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Remaining_days_to_donate__c</fullName>
+        <description>case study</description>
+        <externalId>false</externalId>
+        <formula>IF(( TODAY() -  blood_donated_date__c  ) &gt;90, 0,90 -( TODAY() -  blood_donated_date__c  ))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Remaining days to donate</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Eligible_for_blood_donation__c</fullName>
+        <description>case study checks eligiblity for blood donor</description>
+        <externalId>false</externalId>
+        <formula>age__c  &gt; 18 &amp;&amp;  Body_weight__c  &gt; 50&amp;&amp; IF( ( TODAY() - blood_donated_date__c ) &gt; 90  , True, False)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Eligible for blood donation</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+</CustomObject>
