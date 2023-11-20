@@ -1,0 +1,22 @@
+<template>
+    <lightning-card title="Account Search Component">
+        <div class="slds-box slds-var-m-around_medium slds-var-p-around_small">
+            <lightning-input label="Search Account"></lightning-input>
+            <lightning-button label="search" name="search" onclick={handleClick}></lightning-button>
+            <lightning-button label="Clear" name="clear" variant="destructive" onclick={handleClick}></lightning-button>
+        </div>
+        <template lwc:if={isSearch}>
+            <div class="slds-box slds-var-m-around_medium slds-var-p-around_small">
+                <b>Search Results :</b><br>
+                <template for:each={data} for:item='da'>
+                    <div key={da.Id} class="slds-box slds-var-m-around_medium slds-var-p-around_small">
+                        <b>AccountId</b> :&nbsp;{da.Id}<br>
+                        <b>Name</b> :&nbsp;{da.Name}<br>
+                        <b>AccountNumber</b> :&nbsp;{da.AccountNumber}<br>
+                        <b>BillingAddress</b> :&nbsp;{da.BillingAddress}<br>
+                    </div>
+                </template>
+</div>
+</template>
+</lightning-card>
+</template>

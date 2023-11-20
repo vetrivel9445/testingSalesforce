@@ -1,0 +1,12 @@
+<template>
+    <lightning-card title="Data Table">
+        <div class="slds-var-p-around_small custom-box slds-box slds-var-m-around_medium">
+            <lightning-datatable
+            key-field="Id"
+            data={AccountData}
+            columns={columnsLst}
+            onheaderaction={headerAction}
+            ></lightning-datatable>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,24 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 07-24-2023
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <lightning-card title="DataTable InLine Edit">
+        <div class="slds-box slds-var-m-around_medium slds-var-p-around_medium myTable">
+            <c-child-custom-datatable
+            key-field="Id"
+            data={accountData}
+            columns={columns}
+            onsave={handleSave}
+            oncellchange={handleCellChange}
+            draft-values={draftValues}
+            ></c-child-custom-datatable>
+        </div>
+        <!---
+        <lightning-button label="View" onclick={handleClick}></lightning-button>
+        -->
+    </lightning-card>
+</template>

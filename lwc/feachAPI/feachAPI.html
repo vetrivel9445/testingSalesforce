@@ -1,0 +1,20 @@
+<template>
+    <lightning-card>
+        <div class="slds-grid slds-gutters">
+            <div class="slds-col slds-var-m-around_x-small slds-medium-size_1-of-12">
+            <lightning-layout padding="around-samll">
+                <lightning-layout-item>
+                    <div class="custom-box slds-box slds-grid_align-center">
+                        image
+                    </div>
+                </lightning-layout-item>
+            </lightning-layout>
+        </div>
+        </div>
+        <footer>
+            <lightning-input label="Enter the Name" onchange={handleChange}></lightning-input>
+            <lightning-button label="Search" variant="brand" onclick={handleClick}></lightning-button>
+        </footer>
+    </lightning-card>
+    
+</template>

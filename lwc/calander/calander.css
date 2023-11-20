@@ -1,0 +1,18 @@
+.box {
+  display: flex;
+  padding: 2%;
+}
+
+.input {
+  width: 50%;
+  height: 4vh;
+  position: inherit;
+}
+.btnC {
+  position: absolute;
+  left: 45%;
+}
+.btnR {
+  position: absolute;
+  left: 85%;
+}

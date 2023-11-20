@@ -1,0 +1,22 @@
+<template>
+    <div class="slds-pill_container slds-var-p-around_small" style="border-color:none;">
+        <div class="slds-assistive-text" id="listbox-pill-with-avatar">Press delete or backspace to remove</div>
+        <ul class="slds-listbox slds-listbox_horizontal" role="listbox" aria-label="Selected Options:" aria-orientation="horizontal" aria-describedby="listbox-pill-with-avatar">
+         <template for:each={pillList} for:item="p"> 
+        <li class="slds-listbox-item slds-var-p-around_xx-small" role="presentation" key={p.label}>
+        <span class="slds-pill" style="border-radius: 25px;border-color: lightblue;background: #78d7f58f;padding-left: 10px;width:fit-content;" role="option" tabindex="0" aria-selected="true">
+            <span class="slds-pill__label" title={p.label}>{p.header} :&nbsp; <b>{p.label}</b></span>
+            <lightning-button-icon style="position: relative;bottom: 10%;padding-left: 3px;padding-right: 3px;" icon-name="utility:close" name={p.label} onclick={handleClick} variant="bare" alternative-text="Close" title="Close"></lightning-button-icon>
+        </span>
+        </li>
+        </template>
+        <template if:true={isMore}>
+            <li class="slds-listbox-item">
+                <span class="slds-pill" style="border-radius: 25px;border-color: lightblue;background: #78d7f58f;padding-left: 10%;width:5.5rem;" role="option" tabindex="0" aria-selected="true">
+                    <span class="slds-pill__label" title='more'><b><a onclick={handleAncer}>and more..</a></b></span>
+                </span>
+            </li>
+        </template>  
+        </ul>
+        </div>
+</template>

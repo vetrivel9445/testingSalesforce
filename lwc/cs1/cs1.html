@@ -1,0 +1,42 @@
+<template>
+    <lightning-card title="Related Contact">
+        <template lwc:if={isData}>
+            <div class="slds-box slds-var-m-around_medium slds-var-p-around_medium">
+                <template for:each={data} for:item="rec">
+                    <div key={rec.Id} class="slds-box slds-var-m-around_medium slds-var-p-around_medium">
+                        Contact Name :{rec.Name}
+                    </div>
+                </template>
+</div>
+</template>
+<template lwc:else>
+    <div class="slds-box slds-var-m-around_medium slds-var-p-around_medium">
+        No Related Contacts for This Account Record
+    </div>
+</template>
+<div class="slds-var-p-around_medium">
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-size_3-of-12">
+            <label style="position: relative;">Is caregiver Primary Contact for the Patient ?</label>
+        </div>
+        <div class="slds-col slds-size_1-of-12" style="position: relative;bottom: 17px;">
+            <lightning-input style="position: relative;" field-name="Primary_Contact__c" type="checkbox"   label="Is caregiver Primary Contact for the Patient ?" name="cgIsPrimaryContact"  message-toggle-active="Yes" message-toggle-inactive="No" class="slds-m-top_medium slds-var-p-around_small" variant="label-hidden" ></lightning-input>
+        </div>
+        <div class="slds-col slds-size_3-of-12">
+            <label style="position: relative;">Is caregiver Primary Contact for the Patient ?</label>
+        </div>
+        <div class="slds-col slds-size_1-of-12" style="position: relative;bottom: 17px;">
+            <lightning-input style="position: relative;" field-name="Primary_Contact__c" type="checkbox"   label="Is caregiver Primary Contact for the Patient ?" name="cgIsPrimaryContact"  message-toggle-active="Yes" message-toggle-inactive="No" class="slds-m-top_medium slds-var-p-around_small" variant="label-hidden" ></lightning-input>
+        </div>
+        <div class="slds-col slds-size_3-of-12">
+            <label style="position: relative;">Is caregiver Primary Contact for the Patient ?</label>
+        </div>
+        <div class="slds-col slds-size_1-of-12" style="position: relative;bottom: 17px;">
+            <lightning-input style="position: relative;" field-name="Primary_Contact__c" type="checkbox"   label="Is caregiver Primary Contact for the Patient ?" name="cgIsPrimaryContact" message-toggle-active="Yes" message-toggle-inactive="No" class="slds-m-top_medium slds-var-p-around_small" variant="label-hidden" ></lightning-input>
+        </div>
+    </div>     
+</div>
+                                   
+
+</lightning-card>
+</template>

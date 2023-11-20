@@ -1,0 +1,53 @@
+<template>
+    <div style="position: absolute;z-index: 111111;float:right;right:5px;">
+        <section aria-describedby="dialog-body-id-114" aria-labelledby="dialog-heading-id-119"  class="slds-popover" role="dialog">
+            <template if:true={isOpen}>
+            <lightning-button-icon class="slds-float_right slds-popover__close" icon-name="utility:close" label="remove" onclick={handleCloseFilter} size="small" variant="bare"
+            alternative-text="remove" title="remove"></lightning-button-icon>
+            <div class="slds-popover__body filterHeights" id="dialog-body-id-114" tabindex="0" role="region">
+                <div class="slds-media">
+                    <div class="slds-media__body">
+                        <header class="slds-popover__header">
+                            <h2 class="slds-text-heading_small" id="dialog-heading-id-119">Filter</h2>
+                        </header>
+                        <div class="slds-text-longform slds-var-p-around_x-small">
+
+                        <div class=" button group slds-var-p-bottom_small">
+                        <lightning-button-group>
+                            <!-- <div class="slds-button-group"> -->
+                                <template for:each={buttonLst} for:item='btn'>
+                                    <button class={btn.class} key={btn.label} label={btn.label} data-name={btn.dataName} onclick={handleButtonGroup}>{btn.label}</button>
+                                </template>
+                            <!-- </div> -->
+                        </lightning-button-group>
+                    </div>
+                    <div class="searchBox">
+                        <div onkeyup={handleKeyUp}>
+                            <lightning-input
+                                name="enter-search"
+                                label="Select"
+                                type="search"
+                                placeholder="Search"
+                            ></lightning-input>
+                        </div>
+                    </div>
+                    <div class="checkbox " style="position: relative;right: 46px;">
+                        <template for:each={checkBoxLst} for:item='c'>
+                        <lightning-input key={c.label} class="slds-p-left_xx-large" type="checkbox" checked={c.value} label={c.label} onchange={handleCheckBox} ></lightning-input>
+                        </template>
+                    </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="footerBox">
+                <div class="slds-var-p-around_x-small" style="display: table-header-group;
+                float: right;">
+                    <lightning-button  label="Apply Filter" variant="brand" onclick={handleApplyFilter}  style="float:right;"></lightning-button>
+                    <lightning-button label="Skip" variant="brand-outline" onclick={handleSkipFilter} style="float: right;padding-right: 10px;"></lightning-button>
+                </div>
+            </footer>
+        </template>
+        </section>
+    </div>
+</template>

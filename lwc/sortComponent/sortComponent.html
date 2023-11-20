@@ -1,0 +1,29 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 07-24-2023
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <lightning-card title="Data Table">
+        <div class="slds-var-p-around_small custom-box slds-box slds-var-m-around_medium">
+            <lightning-datatable
+            key-field="Id"
+            data={AccountData}
+            columns={columnsLst}
+            onrowaction={handleRowAction}
+            ></lightning-datatable>
+        </div>
+        <div>
+            <lightning-button label="Sort" onclick={handleClick}></lightning-button>
+            <template for:each={arrayInfo} for:item="info">
+                <div key={info.label}>
+                    {info.label}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    {info.rating}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    {info.value}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

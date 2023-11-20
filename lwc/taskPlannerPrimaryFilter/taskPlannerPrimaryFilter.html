@@ -1,0 +1,71 @@
+<template>
+    <div class="slds-grid slds-gutters_x-small slds-wrap" style="width: fit-content;">
+        <div class="slds-col slds-size_1-of-2 ">
+       <div class="categoryBox slds-size_small">
+        <div class="slds-form-element">
+            <div class="slds-form-element__control">
+                <div class="slds-combobox_container">
+                <div class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click categoryCombo">
+                <div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right" role="none">
+                <div role="combobox" tabindex="0" class="slds-input_faux slds-combobox__input slds-combobox__input-value" style="position: relative;border: none;"  aria-labelledby="combobox-label-id-130 combobox-id-6-selected-value"  aria-controls="listbox-id-7"
+                aria-expanded="true" aria-haspopup="listbox" onclick={handlecategoryFilter}>
+                        <label>Best time to call :</label>
+                            <span style="padding-left: 5px;width: fit-content;"><b>&nbsp; {selectCategory}</b> </span>
+                </div>
+                <span class="slds-icon_container slds-icon-utility-down slds-input__icon slds-input__icon_right">
+                    <svg class="slds-icon slds-icon slds-icon_x-small slds-icon-text-default"  xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 15 15"><path fill="black" d="M7.5 12L0 4h15l-7.5 8Z"/></svg>                                        
+                </span>
+                </div>
+                <div class="slds-dropdown slds-dropdown_fluid slds-size_small" role="listbox"  tabindex="-1" aria-busy="false">
+                <li role="listbox" class="slds-listbox__item" style="list-style-type: none;">
+                    <template for:each={category} for:item="category">
+                        <div key={category.label} aria-checked="true" data-name={category.label} class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected" role="option" onclick={handleSelectCategory} style="padding: 2px;">
+                        <span data-name={category.label} class="slds-media__body slds-var-p-left_x-small">
+                            <span data-name={category.label} class="slds-truncate slds-var-p-left_x-small" title="Accounts">{category.label}</span>
+                        </span>
+                    </div>
+                    </template>
+                </li>
+                </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        </div>
+</div>
+
+<div class="slds-col slds-size_1-of-2">
+        <div class="categoryBox slds-size_small">
+            <div class="slds-form-element">
+                <div class="slds-form-element__control">
+                    <div class="slds-combobox_container">
+                    <div class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click categoryCombo">
+                    <div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right" role="none">
+                    <div role="combobox" tabindex="0" class="slds-input_faux slds-combobox__input slds-combobox__input-value" style="position: relative;border: none;"  aria-labelledby="combobox-label-id-130 combobox-id-6-selected-value"  aria-controls="listbox-id-7"
+                    aria-expanded="true" aria-haspopup="listbox" onclick={handlecategoryFilter}>
+                            <label>Duration :</label>
+                                <span style="padding-left: 5px;width: fit-content;"><b>&nbsp; {selectCategory}</b> </span>
+                    </div>
+                    <span class="slds-icon_container slds-icon-utility-down slds-input__icon slds-input__icon_right">
+                        <svg class="slds-icon slds-icon slds-icon_x-small slds-icon-text-default"  xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 15 15"><path fill="black" d="M7.5 12L0 4h15l-7.5 8Z"/></svg>                                        
+                    </span>
+                    </div>
+                    <div class="slds-dropdown slds-dropdown_fluid slds-size_small" role="listbox"  tabindex="-1" aria-busy="false">
+                    <li role="listbox" class="slds-listbox__item" style="list-style-type: none;">
+                        <template for:each={category} for:item="category">
+                            <div key={category.label} aria-checked="true" data-name={category.label} class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected" role="option" onclick={handleSelectCategory} style="padding: 2px;">
+                            <span data-name={category.label} class="slds-media__body slds-var-p-left_x-small">
+                                <span data-name={category.label} class="slds-truncate slds-var-p-left_x-small" title="Accounts">{category.label}</span>
+                            </span>
+                        </div>
+                        </template>
+                    </li>
+                    </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            </div>
+            </div>
+</template>

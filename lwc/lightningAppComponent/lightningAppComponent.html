@@ -1,0 +1,21 @@
+<template>
+    <lightning-card title="Calculator">
+        <lightning-input name="input1" value={firstInput} label="Enter first Input" onchange={handleChange}></lightning-input><br>
+        <lightning-input name="input2" value={secondInput} label="Enter the second Input" onchange={handleChange}>
+        </lightning-input>
+        <lightning-button name="addButton" class="slds-var-m-left_x-small" lable="Add" onclick={handleClick}>
+        </lightning-button>
+        <lightning-button name="subButton" class="slds-var-m-left_x-small" variant='brand' lable="sub" onclick={handleClick}>
+        </lightning-button>
+        <lightning-button name="mulButton" class="slds-var-m-left_x-small" variant='brand' lable="Multiple" onclick={handleClick}>
+        </lightning-button>
+        <lightning-button name="divButton" class="slds-var-m-vertical_medium" variant='brand' lable="Divide" onclick={handleClick}>
+        </lightning-button>
+        <lightning-button name="clearButton" class="slds-var-m-vertical_small" variant='destrictive' lable="Clear" onclick={handleClick}>
+        </lightning-button>
+        <br>
+        <lightning-button variant="brand" lable="ex"></lightning-button>
+        <br>
+        Answer:{output}
+    </lightning-card> 
+</template>

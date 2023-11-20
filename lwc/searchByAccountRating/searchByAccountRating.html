@@ -1,0 +1,23 @@
+<template>
+    <lightning-card title="Get Account Record With Rating ::">
+        <div class="slds-var-p-around_medium">
+            <template lwc:if={isChange}>
+                <template for:each={AccountLst} for:item="rec">
+                    <div key={rec.Id} class="slds-box slds-var-m-around_x-small">
+                        <p>
+                            Account Name :&nbsp;{rec.Name}
+                        </p>
+                        <p>
+                            Account Rating :&nbsp;{rec.Rating}
+                        </p>
+                    </div>
+                </template>
+</template>
+<footer>
+    <div class="slds-var-p-around_x-small">
+        <lightning-combobox label="Rating" options={ratingOptions} onchange={handleChange}></lightning-combobox>
+    </div>
+</footer>
+</div>
+</lightning-card>
+</template>

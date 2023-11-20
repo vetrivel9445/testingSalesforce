@@ -1,0 +1,64 @@
+<!-- sldsValidatorIgnore -->
+<!-- sldsValidatorIgnore -->
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 07-27-2023
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+  <lightning-card class="slds-var-m-around_medium">
+    <div class="table-container myTable slds-scrollable_y" onscrollend={handleScroll} onmousewheel={handleMouse}>
+      <table>
+        <thead>
+          <tr>
+            <th>Id</th >
+            <th>Name</th>
+            <th>Rating</th>
+          </tr>
+        </thead>
+        <template if:true={AccountData}>
+        <tbody>
+          <tr>
+            <td >
+            <template for:each={AccountData} for:item="data">
+              <div key={data.Id} class={data.Id} >
+                {data.Id}
+              </div>
+            </template>
+          </td>
+            <td >
+            <template for:each={AccountData} for:item="data">
+              <div key={data.Name}>
+                {data.Name}
+              </div>
+            </template>
+          </td>
+            <td>
+            <template for:each={AccountData} for:item="data">
+              <div key={data.Rating}>
+                {data.Rating}
+              </div>
+            </template>
+          </td>
+          </tr>
+          <template if:true={isLoading}>
+            <tr>
+                <div class="exampleHolder slds-align_absolute-center">
+                  <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+              </div>
+            </tr>
+          </template>
+        </tbody>
+      </template>
+      </table>
+    </div>
+     <!--
+    <lightning-datatable
+      key-field="id"
+      data={AccountData}
+      columns={columnsLst}
+    ></lightning-datatable>-->
+  </lightning-card>
+</template>

@@ -1,0 +1,102 @@
+<template>
+    <template if:false={isOpen}>
+        <div style="display: inherit;position: inherit;">
+        <lightning-spinner alternative-text="Loading" variant="brand" size="large"></lightning-spinner>
+        </div>
+    </template>
+    <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-size_12-of-12 slds-table_fixed-layout slds-m-top_large slds-p-around_small" style="line-height: 15px;border-top: none;border-bottom: none;">
+        <thead>
+            <tr class="slds-line-height_reset" style="font-size: 13px;font-weight: 700;font-family: sans-serif;">
+                <th class="slds-size_1-of-12" scope="col" style="width: 55px;">
+                    <div class="slds-truncate">
+                        <c-task-planner-hot-chilly-icon name="columnChilli" hot-icon-new={columnChili} onchili={handleChiliClick}></c-task-planner-hot-chilly-icon>
+                    </div>
+                </th>
+                <th class="slds-size_1-of-12" scope="col">
+                    <div class="slds-truncate">
+                        <c-ystore-product-solution-favourite-icon name="columnFavourite" onfavourite={handleChildFavourite} is-selected={columnFav}></c-ystore-product-solution-favourite-icon>
+                    </div>
+                </th>
+                <th class="slds-size_4-of-12" scope="col">
+                    <div class="slds-truncate" title="Client Name">Client Name</div>
+                </th>
+                <th class="slds-size_3-of-12" scope="col">
+                    <div class="slds-truncate" title="Subject">Subject</div>
+                </th>
+                <th class="slds-size_3-of-12" scope="col">
+                    <div class="slds-grid">
+                    <div class="slds-truncate" title="Task Type">Task Type</div>
+                </div>
+                </th>
+                <th class="slds-size_3-of-12" scope="col">
+                    <div class="slds-grid">
+                    <div class="slds-truncate" title="Best time to call">Best time to call</div>
+                    <lightning-icon if:true={arrowUp} class="slds-m-left_xx-small" icon-name='utility:arrowup' alternative-text='arrowup' size='xx-small' title='arrowup' data-name="arrow_1" onclick={handleArrowUp}></lightning-icon>
+                    <lightning-icon if:true={arrowDown} class="slds-m-left_xx-small" icon-name='utility:arrowdown' alternative-text='arrowdown' size='xx-small' title='arrowdown' data-name="arrow_2" onclick={handleArrowDown}></lightning-icon>
+                </div>
+                </th>
+                <th class="slds-size_3-of-12" scope="col">
+                    <div class="slds-grid">
+                    <div class="slds-truncate" title="Opportunity Name">Opportunity Name</div>
+                    </div>
+                </th>
+                <th class="slds-size_3-of-12" scope="col">
+                    <div class="slds-grid">
+                    <div class="slds-truncate" title="SAT Grading">SAT Grading</div>
+                    </div>
+                </th>
+                <th class="slds-size_3-of-12" scope="col">
+                    <div class="slds-grid">
+                    <div class="slds-truncate" title="IC Grading">IC Grading</div>
+                    <lightning-icon if:true={arrowUp} class="slds-m-left_xx-small" icon-name='utility:arrowup' alternative-text='arrowup' size='xx-small' title='arrowup' data-name="arrow_3" onclick={handleArrowUp}></lightning-icon>
+                    <lightning-icon if:true={arrowDown} class="slds-m-left_xx-small" icon-name='utility:arrowdown' alternative-text='arrowdown' size='xx-small' title='arrowdown' data-namne="arrow_4" onclick={handleArrowDown}></lightning-icon>
+                    </div>
+                </th>
+                <th class="slds-size_1-of-12" scope="col">
+                </th>
+            </tr>
+        </thead>
+        <tbody style="line-height: 25px;background:#E8F3FDD4;">
+            <template if:true={isOpen}>
+            <template for:each={inputData} for:item="data">
+                <tr  key={data.id} style="font-size: 13px;font-weight: 400;font-family: sans-serif;">
+                    <td scope="col" class="slds-size_2-of-12">
+                        <div class="slds-truncate">
+                            <c-task-planner-hot-chilly-icon hot-icon-new={data.chili} name={data.id} onchili={handleChiliClick}></c-task-planner-hot-chilly-icon>
+                        </div>
+                    </td>
+                    <td scope="col" class="slds-size_2-of-12">
+                        <div>
+                            <c-ystore-product-solution-favourite-icon is-selected={data.favourite} onfavourite={handleChildFavourite} name={data.id} ></c-ystore-product-solution-favourite-icon>
+                        </div>
+                    </td>
+                    <td scope="col" class="slds-size_2-of-12">
+                        <div class="slds-truncate">{data.clientName}</div>
+                    </td>
+                    <td scope="col" class="slds-size_2-of-12">
+                        <div class="slds-truncate">{data.subject}</div>
+                    </td>
+                    <td scope="col" class="slds-size_2-of-12">
+                        <div class="slds-truncate">{data.taskType}</div>
+                    </td>
+                    <td scope="col" class="slds-size_2-of-12">
+                        <div class="slds-truncate">{data.bestTimeToCall}</div>
+                    </td>
+                    <td scope="col" class="slds-size_2-of-12">
+                        <div class="slds-truncate">{data.OpportunityName}</div>
+                    </td>
+                    <td scope="col" class="slds-size_2-of-12">
+                        <div class="slds-truncate">{data.satGrading}</div>
+                    </td>
+                    <td scope="col" class="slds-size_2-of-12">
+                        <div class="slds-truncate">{data.icGrading}</div>
+                    </td>
+                    <td scope="col">
+                        <lightning-icon icon-name='utility:edit' name={data.id} onclick={handleEditIconClick} alternative-text='edit' size='x-small' title='edit' class="editIconCustomColor" style="cursor: pointer;"></lightning-icon>
+                    </td>
+                </tr> 
+            </template>
+        </template>
+        </tbody>
+    </table>
+</template>

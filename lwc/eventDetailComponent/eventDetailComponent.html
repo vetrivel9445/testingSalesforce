@@ -1,0 +1,92 @@
+<template>
+   <lightning-card title="Event Detail Componenet">
+        <template lwc:if={options}>
+            <div class="slds-var-p-around_medium">
+            <lightning-combobox
+            label="Event Record"
+            value={value}
+            placeholder="Select Progress"
+            options={options}
+            onchange={handleChange} 
+            ></lightning-combobox>
+        </div>
+        </template>
+<template lwc:if={isChange}>
+<div class="slds-box slds-var-m-around_medium slds-var-p-around_medium">
+    <lightning-tabset variant="scoped">
+        <lightning-tab label="Event Details">
+                <div class="slds-box slds-var-m-around_medium slds-var-p-around_medium">
+                    <b>Event Details:</b><br>
+                    Name :{eventDetailData.Name__c}<br>
+                    Start Date :{eventDetailData.Start_Date__c}<br>
+                    End Date :{eventDetailData.End_Date__c}<br>
+                    Is Live Event :{eventDetailData.Live__c}<br>
+                </div>
+        </lightning-tab>
+        <lightning-tab label="Speaker Details">
+            <template lwc:if={isHandleClick}>
+                <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01" class="slds-modal slds-fade-in-open">
+                    <div class="slds-modal__container">
+                      <div class="slds-modal__content slds-var-p-around_medium" id="modal-content-id-1">
+                        <lightning-record-edit-form
+                        object-api-name={speaker}
+                        onsubmit={handleSubmit}
+                        onsuccess={handleSuccess}
+                        >
+                        <lightning-input-field field-name={name}></lightning-input-field>
+                        <lightning-input-field field-name={phone}></lightning-input-field>
+                        <lightning-input-field field-name={email}></lightning-input-field>
+                        <lightning-input-field field-name={company}></lightning-input-field>
+                        <lightning-button label="Save" type="submit" onclick={handleSave} class="slds-var-p-around_medium"></lightning-button>
+                        <lightning-button label="Cancel" type="reset" onclick={handleCancle} class="slds-var-p-around_medium"></lightning-button>
+                    </lightning-record-edit-form>
+                      </div>
+                    </div>
+                  </section>
+                  <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+            </template>
+<div class="slds-var-p-around_medium">
+    <lightning-button label="Add New Speaker" variant="brand" onclick={handleClick} class="slds-float_right"></lightning-button>
+</div>
+<div class=" slds-box slds-var-m-around_medium slds-var-p-around_medium">
+    <lightning-datatable key-field="Id" data={speakerResponse} columns={cols}></lightning-datatable>
+</div>
+<template if:false={isSpeaker}>
+                <lightning-record-form
+                object-api-name="Event_Speaker__c"
+                layout-type="full"
+                onsuccess={handleSuccess}
+                ></lightning-record-form>
+            </template>
+</lightning-tab>
+<lightning-tab label="Location Details">
+    <b>Location Details</b><br>
+    <template for:each={locationResponse} for:item="res">
+        <div key={res.Id}>
+            Id : {res.Location__r.Id}<br>
+            Name :{res.Location__r.Name}<br>
+            Street :{res.Location__r.Street__c}<br>
+            City :{res.Location__r.	City__c}<br>
+            State :{res.Location__r.State__c}<br>
+            Country :{res.Location__r.Country__c}<br>
+            Postal Code:{res.Location__r.Postal_Code__c}<br>
+        </div>
+    </template>
+</lightning-tab>
+<lightning-tab label="Attendee Details">
+    <b>Attendee Details</b><br>
+    <template for:each={attendeeResponse} for:item="res">
+                <div key={res.Id}>
+                    Name :{res.Attendee__r.Name}<br>
+                    Phone :{res.Attendee__r.Phone__c}<br>
+                    Email :{res.Attendee__r.Email__c}<br>
+                    Company Name :{res.Attendee__r.Company_Name__c}<br>
+
+</div>
+</template>
+</lightning-tab>
+</lightning-tabset>
+</div>
+</template>
+</lightning-card>
+</template>

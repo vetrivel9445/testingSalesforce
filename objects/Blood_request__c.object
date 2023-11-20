@@ -154,36 +154,28 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>Private</externalSharingModel>
-    <label>Blood Donor</label>
+    <label>Blood request</label>
     <nameField>
-        <displayFormat>BD-{000}</displayFormat>
-        <label>Blood donor ID</label>
-        <trackHistory>false</trackHistory>
-        <type>AutoNumber</type>
+        <label>Blood Patient Name</label>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
     </nameField>
-    <pluralLabel>Blood Donors</pluralLabel>
+    <pluralLabel>Blood requests</pluralLabel>
     <searchLayouts/>
     <sharingModel>Private</sharingModel>
     <visibility>Public</visibility>
+    <compactLayouts>
+        <fullName>Blood_Group</fullName>
+        <fields>Blood_Group__c</fields>
+        <label>Blood Group</label>
+    </compactLayouts>
     <fields>
-        <fullName>DOB__c</fullName>
+        <fullName>Age__c</fullName>
         <description>case study</description>
         <externalId>false</externalId>
-        <inlineHelpText>enter date of birth</inlineHelpText>
-        <label>DOB</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>age__c</fullName>
-        <description>case study calculate age in blood donor</description>
-        <externalId>false</externalId>
-        <formula>YEAR(TODAY())- YEAR( DOB__c )</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>age</label>
-        <precision>18</precision>
+        <inlineHelpText>Please Enter age</inlineHelpText>
+        <label>Age</label>
+        <precision>3</precision>
         <required>false</required>
         <scale>0</scale>
         <trackHistory>false</trackHistory>
@@ -192,32 +184,10 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Count__c</fullName>
-        <externalId>false</externalId>
-        <label>Count</label>
-        <summaryForeignKey>blood_coor__c.Blood_Donor__c</summaryForeignKey>
-        <summaryOperation>count</summaryOperation>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Summary</type>
-    </fields>
-    <fields>
-        <fullName>Email__c</fullName>
-        <description>case study</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Enter Email address</inlineHelpText>
-        <label>Email</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Email</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>State__c</fullName>
         <description>case study</description>
         <externalId>false</externalId>
-        <inlineHelpText>please select state</inlineHelpText>
+        <inlineHelpText>Please select your state</inlineHelpText>
         <label>State</label>
         <required>true</required>
         <trackHistory>false</trackHistory>
@@ -251,23 +221,10 @@
         </valueSet>
     </fields>
     <fields>
-        <fullName>Account__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Account</label>
-        <referenceTo>Account</referenceTo>
-        <relationshipLabel>Blood Donors</relationshipLabel>
-        <relationshipName>Blood_Donors</relationshipName>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
         <fullName>District__c</fullName>
         <description>case study</description>
         <externalId>false</externalId>
-        <inlineHelpText>please select districs</inlineHelpText>
+        <inlineHelpText>Please select one of the district</inlineHelpText>
         <label>District</label>
         <required>true</required>
         <trackHistory>false</trackHistory>
@@ -435,20 +392,10 @@
         </valueSet>
     </fields>
     <fields>
-        <fullName>Phone_No__c</fullName>
-        <externalId>false</externalId>
-        <inlineHelpText>Enter phone Number</inlineHelpText>
-        <label>Phone No</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Phone</type>
-    </fields>
-    <fields>
         <fullName>Blood_Group__c</fullName>
-        <description>case study blood groups</description>
+        <description>case study</description>
         <externalId>false</externalId>
-        <inlineHelpText>please select the blood group</inlineHelpText>
+        <inlineHelpText>Please select any of the blood group</inlineHelpText>
         <label>Blood Group</label>
         <required>true</required>
         <trackHistory>true</trackHistory>
@@ -469,16 +416,6 @@
                     <label>A negative</label>
                 </value>
                 <value>
-                    <fullName>AB positive</fullName>
-                    <default>false</default>
-                    <label>AB positive</label>
-                </value>
-                <value>
-                    <fullName>AB negative</fullName>
-                    <default>false</default>
-                    <label>AB negative</label>
-                </value>
-                <value>
                     <fullName>B positive</fullName>
                     <default>false</default>
                     <label>B positive</label>
@@ -487,6 +424,16 @@
                     <fullName>B negative</fullName>
                     <default>false</default>
                     <label>B negative</label>
+                </value>
+                <value>
+                    <fullName>AB positive</fullName>
+                    <default>false</default>
+                    <label>AB positive</label>
+                </value>
+                <value>
+                    <fullName>AB negative</fullName>
+                    <default>false</default>
+                    <label>AB negative</label>
                 </value>
                 <value>
                     <fullName>O positive</fullName>
@@ -502,48 +449,11 @@
         </valueSet>
     </fields>
     <fields>
-        <fullName>Body_weight__c</fullName>
+        <fullName>No_of_units__c</fullName>
         <description>case study</description>
         <externalId>false</externalId>
-        <inlineHelpText>Enter body weight in kg</inlineHelpText>
-        <label>Body weight</label>
-        <precision>10</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Blood_donor_Name__c</fullName>
-        <description>case study</description>
-        <externalId>false</externalId>
-        <label>Blood donor Name</label>
-        <length>18</length>
-        <required>false</required>
-        <trackHistory>true</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>blood_donated_date__c</fullName>
-        <description>case study</description>
-        <externalId>false</externalId>
-        <label>blood donated date</label>
-        <required>true</required>
-        <trackHistory>true</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Remaining_days_to_donate__c</fullName>
-        <description>case study</description>
-        <externalId>false</externalId>
-        <formula>IF(( TODAY() -  blood_donated_date__c  ) &gt;90, 0,90 -( TODAY() -  blood_donated_date__c  ))</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Remaining days to donate</label>
+        <inlineHelpText>Enter no of units</inlineHelpText>
+        <label>No of units</label>
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
@@ -553,38 +463,138 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Eligible_for_blood_donation__c</fullName>
-        <description>case study checks eligiblity for blood donor</description>
+        <fullName>Attender_Name__c</fullName>
+        <description>case study</description>
         <externalId>false</externalId>
-        <formula>age__c  &gt; 18 &amp;&amp;  Body_weight__c  &gt; 50&amp;&amp; IF( ( TODAY() - blood_donated_date__c ) &gt; 90  , True, False)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Eligible for blood donation</label>
+        <inlineHelpText>Enter attender name</inlineHelpText>
+        <label>Attender Name</label>
+        <length>26</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Hospital_Name__c</fullName>
+        <description>case study</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the hospital name</inlineHelpText>
+        <label>Hospital Name</label>
+        <length>50</length>
+        <required>true</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Attender_Email__c</fullName>
+        <description>case study</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter Email address of attender</inlineHelpText>
+        <label>Attender Email</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Blood_request_ID__c</fullName>
+        <description>case study</description>
+        <displayFormat>BR-{0000}</displayFormat>
+        <externalId>false</externalId>
+        <label>Blood request ID</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>AutoNumber</type>
+    </fields>
+    <fields>
+        <fullName>Hospital_Address__c</fullName>
+        <description>case study</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter hospital address</inlineHelpText>
+        <label>Hospital Address</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Attender_Contact_No__c</fullName>
+        <description>case study</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter Attender Contact No</inlineHelpText>
+        <label>Attender Contact No</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Nature_of_Treatment__c</fullName>
+        <description>case study</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please select the nature of treatment taken</inlineHelpText>
+        <label>Nature of Treatment</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>general medicine</fullName>
+                    <default>false</default>
+                    <label>general medicine</label>
+                </value>
+                <value>
+                    <fullName>siddha</fullName>
+                    <default>false</default>
+                    <label>siddha</label>
+                </value>
+                <value>
+                    <fullName>ayurveda</fullName>
+                    <default>false</default>
+                    <label>ayurveda</label>
+                </value>
+                <value>
+                    <fullName>homeopathy</fullName>
+                    <default>false</default>
+                    <label>homeopathy</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>NoOfBloodCoOrdinaters__c</fullName>
+        <externalId>false</externalId>
+        <label>NoOfBloodCoOrdinaters</label>
+        <summaryForeignKey>blood_coor__c.Blood_request__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
     </fields>
     <validationRules>
-        <fullName>phone_no_rule</fullName>
+        <fullName>Age_rule</fullName>
         <active>true</active>
         <description>case study</description>
-        <errorConditionFormula>NOT(ISNUMBER( Phone_No__c )) &amp;&amp; NOT( $Setup.validationIsbypass__c.bypass_Validation__c )</errorConditionFormula>
-        <errorDisplayField>Phone_No__c</errorDisplayField>
-        <errorMessage>Please enter valid phone number</errorMessage>
+        <errorConditionFormula>Age__c &lt; 18</errorConditionFormula>
+        <errorDisplayField>Age__c</errorDisplayField>
+        <errorMessage>Below 18 age could not donate blood</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>body_weight_rule</fullName>
-        <active>false</active>
-        <description>case study</description>
-        <errorConditionFormula>Body_weight__c &lt;50</errorConditionFormula>
-        <errorDisplayField>Body_weight__c</errorDisplayField>
-        <errorMessage>Below 50 could not donate blood</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>phone_no_length_rule</fullName>
+        <fullName>attender_contact_no_rule</fullName>
         <active>true</active>
         <description>case study</description>
-        <errorConditionFormula>LEN( Phone_No__c ) &lt;&gt; 10</errorConditionFormula>
-        <errorDisplayField>Phone_No__c</errorDisplayField>
-        <errorMessage>Please Enter the valid phone number</errorMessage>
+        <errorConditionFormula>AND((ISBLANK( Attender_Name__c )),NOT(ISBLANK( Attender_Contact_No__c )))|| AND(NOT(ISBLANK( Attender_Name__c )),ISBLANK( Attender_Contact_No__c ))</errorConditionFormula>
+        <errorMessage>Please Enter attender contact no and name</errorMessage>
     </validationRules>
 </CustomObject>

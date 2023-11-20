@@ -1,0 +1,97 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 07-25-2023
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+  <lightning-card class="slds-var-m-around_medium">
+    <div class="box slds-box slds-align_absolute-center slds-grid slds-wrap">
+      <input
+        class="input slds-col"
+        label="Select Date"
+        placeholder="DD/MM/YYYY-DD/MM/YYYY"
+        onchange={handleChange}
+      />
+      <lightning-button-icon
+        icon-name="standard:event"
+        alternative-text="Event"
+        title="Event"
+        onclick={handleButton}
+      ></lightning-button-icon>
+    </div>
+    <template if:true={isSelect}>
+      <lightning-modal-header label="Select Date"></lightning-modal-header>
+      <lightning-modal-body>
+        <div class="slds-var-p-around_small">
+          <lightning-combobox
+            field-level-help="Help text detailing the purpose and function of the combobox."
+            label="Status"
+            message-when-value-missing="You are Missing the year Field"
+            name="Year"
+            options={option}
+            onchange={handleCombobox}
+            placeholder="Select Year"
+            value={value}
+            variant="standard"
+          ></lightning-combobox>
+        </div>
+        <div class="slds-var-p-around_small">
+          <button
+            aria-label="Previous Button"
+            title="Previous Button"
+            onclick={handlePrevious}
+          >
+            <b>&lt;</b>
+          </button>
+          <button
+            class="btnC"
+            icon-name={month}
+            label={month}
+            onclick={handleYear}
+          >
+            {month}
+          </button>
+          <button
+            class="btnR"
+            aria-label="Next Button"
+            title="Next Button"
+            onclick={handleNext}
+          >
+            <b>&gt;</b>
+          </button>
+        </div>
+        <div class="slds-var-p-around_medium">
+          <table>
+            <tr>
+              <th>Mon</th>
+              <th>Tue</th>
+              <th>Wed</th>
+              <th>Thu</th>
+              <th>Fri</th>
+              <th>Sat</th>
+              <th>Sun</th>
+            </tr>
+            <tr>
+              <td onclick={handleTableRows}><button>1</button></td>
+            </tr>
+          </table>
+        </div>
+      </lightning-modal-body>
+      <lightning-modal-footer>
+        <div class="slds-var-p-around_medium">
+          <lightning-button
+            class="slds-float_left"
+            label="Reset"
+            onclick={handleReset}
+          ></lightning-button>
+          <lightning-button
+            label="Apply"
+            onclick={handleApply}
+          ></lightning-button>
+        </div>
+      </lightning-modal-footer>
+    </template>
+  </lightning-card>
+</template>

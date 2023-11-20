@@ -1,0 +1,11 @@
+<template>
+    <lightning-card title="Data Table">
+        <div class="custom-box slds-box slds-var-m-around_medium slds-var-p-around_small">
+            <c-child-datatable
+            key-field="Id"
+            data={data}
+            columns={columnsLst}
+            ></c-child-datatable>
+        </div>
+    </lightning-card>
+</template>

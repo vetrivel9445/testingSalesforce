@@ -1,0 +1,22 @@
+<template>
+    <lightning-quick-action-panel>
+        <lightning-card title="Clone Record">
+            <template lwc:if={data}>
+<div class="slds-box slds-var-p-around_medium">
+    <lightning-record-edit-form
+    object-api-name={objectApiName}
+    record-id={recordId}
+    onsubmit={handleSubmit}
+    mode="readonly">
+    <template for:each={keyFields} for:item="k">
+        <div key={k}>
+            <lightning-input-field field-name={k} data-field={k}></lightning-input-field>
+        </div>
+    </template>
+<lightning-button label="Clone Record" variant="brand" type="submit" onclick={handleClick}></lightning-button>
+</lightning-record-edit-form>
+</div>
+</template>
+</lightning-card>
+</lightning-quick-action-panel>
+</template>

@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <apiVersion>56.0</apiVersion>
+    <decisions>
+        <name>decision_to_update</name>
+        <label>decision to update</label>
+        <locationX>182</locationX>
+        <locationY>518</locationY>
+        <defaultConnectorLabel>if checkbox false</defaultConnectorLabel>
+        <rules>
+            <name>if_checkbox_true</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Reopen_case</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>update_case</targetReference>
+            </connector>
+            <label>if checkbox true</label>
+        </rules>
+    </decisions>
+    <dynamicChoiceSets>
+        <name>Feasibilitypicklist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Fesiablity__c</picklistField>
+        <picklistObject>Feedback__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>resolutionratingpicklist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Resolution_Rating__c</picklistField>
+        <picklistObject>Feedback__c</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>resolutiontypepicklist</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Resolution_Type__c</picklistField>
+        <picklistObject>Feedback__c</picklistObject>
+    </dynamicChoiceSets>
+    <environments>Default</environments>
+    <interviewLabel>LF casestudy 5 {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>LF casestudy 5</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <recordCreates>
+        <name>create_case</name>
+        <label>create case</label>
+        <locationX>182</locationX>
+        <locationY>278</locationY>
+        <connector>
+            <targetReference>screen_2</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Caseid__c</field>
+            <value>
+                <elementReference>varcase.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Comments__c</field>
+            <value>
+                <elementReference>Comments</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Fesiablity__c</field>
+            <value>
+                <elementReference>Feasibility</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Reopen_case__c</field>
+            <value>
+                <elementReference>Reopen_case</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Resolution_Rating__c</field>
+            <value>
+                <elementReference>Resolution_Rating</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Resolution_Type__c</field>
+            <value>
+                <elementReference>Resolution_Type</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Feedback__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordUpdates>
+        <name>update_case</name>
+        <label>update case</label>
+        <locationX>50</locationX>
+        <locationY>638</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>varcase.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Status</field>
+            <value>
+                <stringValue>New</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Case</object>
+    </recordUpdates>
+    <screens>
+        <name>screen_1</name>
+        <label>screen 1</label>
+        <locationX>182</locationX>
+        <locationY>158</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>create_case</targetReference>
+        </connector>
+        <fields>
+            <name>Resolution_Type</name>
+            <choiceReferences>resolutiontypepicklist</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Resolution Type</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>Resolution_Rating</name>
+            <choiceReferences>resolutionratingpicklist</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Resolution Rating</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>Feasibility</name>
+            <choiceReferences>Feasibilitypicklist</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Feasibility</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>Reopen_case</name>
+            <dataType>Boolean</dataType>
+            <fieldText>Reopen case</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>Comments</name>
+            <dataType>String</dataType>
+            <fieldText>Comments</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>screen_2</name>
+        <label>screen 2</label>
+        <locationX>182</locationX>
+        <locationY>398</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>decision_to_update</targetReference>
+        </connector>
+        <fields>
+            <name>casetext</name>
+            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;strong style=&quot;color: rgb(21, 49, 231); font-size: 14px;&quot;&gt;Case Created Successfull&lt;/strong&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>screen_1</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>varcase</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <objectType>Case</objectType>
+    </variables>
+</Flow>

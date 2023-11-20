@@ -1,0 +1,74 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 07-18-2023
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+  <lightning-card title="Search Componenet">
+    <lightning-input
+      type="search"
+      label="Search Bar"
+      name="searchBar"
+      onchange={handleChange}
+      class="slds-var-p-around_small"
+    ></lightning-input>
+    <template lwc:if={isMatch}>
+      <template for:each={output} for:item="rec">
+        <div key={rec} class="slds-var-m-around_small">{rec}</div>
+      </template>
+    </template>
+  </lightning-card>
+ <lightning-card>
+  <div class="slds-form-element">
+    <label class="slds-form-element__label" for="combobox-id-4" id="combobox-label-id-132">Relate To</label>
+    <div class="slds-form-element__control">
+    <div class="slds-combobox_container">
+    <div class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click slds-is-open">
+    <div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right" role="none">
+    <div role="combobox" tabindex="0" class="slds-input_faux slds-combobox__input slds-has-focus slds-combobox__input-value" aria-labelledby="combobox-label-id-132 combobox-id-4-selected-value" id="combobox-id-4-selected-value" aria-controls="listbox-id-6"
+    aria-expanded="true" aria-haspopup="listbox" aria-activedescendant="option1">
+    <span class="slds-truncate" id="combobox-value-id-95">{value}</span>
+    </div>
+    <span class="slds-icon_container slds-icon-utility-down slds-input__icon slds-input__icon_right">
+    <svg class="slds-icon slds-icon slds-icon_x-small slds-icon-text-default" aria-hidden="true">
+    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+    </svg>
+    </span>
+    </div>
+    <div id="listbox-id-6" class="slds-dropdown slds-dropdown_length-5 slds-dropdown_fluid" role="listbox"  tabindex="0" aria-busy="false">
+    <ul class="slds-listbox slds-listbox_vertical" role="presentation">
+    <li role="presentation" class="slds-listbox__item">
+    <div aria-selected="true" aria-checked="true" id="option740" class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected slds-has-focus" role="option">
+    <span class="slds-media__figure slds-listbox__option-icon">
+    <span class="slds-icon_container slds-icon-utility-check slds-current-color">
+    <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#check"></use>
+    </svg>
+    </span>
+    </span>
+    <span class="slds-media__body">
+    <span class="slds-truncate" title="Accounts">{value}</span>
+    </span>
+    </div>
+    </li>
+    <template for:each={options} for:item="op">
+      <li role="presentation" class="slds-listbox__item" key={op.label} name={op.label} onclick={handleComboChange}>
+        <div id="option741" class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small" role="option">
+        <span class="slds-media__figure slds-listbox__option-icon"></span>
+        <span class="slds-media__body">
+        <span class="slds-truncate" title="Reports">{op.label}</span>
+        </span>
+        </div>
+        </li>
+    </template>
+    </ul>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+ </lightning-card>
+
+</template>

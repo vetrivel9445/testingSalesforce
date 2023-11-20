@@ -1,0 +1,19 @@
+<template>
+<lightning-card title="Event">
+    <div class="slds-var-p-around_medium">
+        <lightning-input label="Search Event" onchange={handleChange} value={value}></lightning-input>
+        <lightning-button label="Search" name="search" variant='brand'  onclick={handleClick}></lightning-button>
+        <lightning-button label="clear" name="clear" variant="brand" class="slds-var-p-around_medium" onclick={handleClick}></lightning-button>
+    </div>
+        <template lwc:if={isData}>
+            <div class="slds-box slds-var-m-around_medium slds-var-p-around_medium">
+            <template for:each={data} for:item="d">
+                <div key={d.Id} class="slds-box slds-var-m-around_medium slds-var-p-around_medium">
+                    {d.Name__c}
+                </div>
+            </template>
+</div>
+</template>
+
+</lightning-card>
+</template>

@@ -1,0 +1,121 @@
+<template>
+    <div class="slds-form">
+        <fieldset class="slds-form-element">
+        <div class="slds-form-element__control">
+        <div class="slds-form-element__group">
+        <div class="slds-combobox_container">
+        <div role="combobox" class="slds-combobox__input slds-has-focus slds-combobox__input-value" 
+        style="background-color: white;width:  305px;padding: 5px;border-radius: 4px;">
+            <div class="slds-grid slds-wrap" onclick={handleBoxClick} >
+                <div class="slds-col slds-size_11-of-12 slds-grow slds-col_bump-right">
+                    <label>Duration :&nbsp;&nbsp;</label>
+                    <span class="slds-truncate" id="combobox-value-id-102">&nbsp;&nbsp;<b>{selectedDate}</b></span>
+                </div>
+                <div class="slds-col slds-size_1-of-12 slds-shrink">
+                    <lightning-button-icon  class="slds-float_right button-icon" icon-name='utility:down' alternative-text='down' variant="bare" size='Medium' title='down'></lightning-button-icon>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+        </div>
+        </fieldset>
+    </div>
+    <template if:true={isClickedBox}>
+    <div aria-hidden="false" aria-label="Date picker: June" class="slds-datepicker slds-dropdown slds-dropdown_left" style="position: absolute;z-index: 10;top: inherit;left: inherit;" role="dialog">
+
+    <div class="slds-datepicker__filter_month slds-grid slds-grid_vertical-align-center">
+        <div class="slds-col slds-align-middle slds-size_1-of-6">
+            <!-- lightning button icon previous button -->
+            <lightning-button-icon icon-name='utility:chevronleft' alternative-text='Previous Month' size='medium' variant="bare" name="Previous Month" title='Previous Month' onclick={handlePreviousMonthChange}></lightning-button-icon>
+        </div>
+        <div class="slds-col slds-align-middle slds-size_2-of-6">
+            <h2 aria-atomic="true" aria-live="assertive" class="slds-align-middle" id="rangeWeekSame_end-month">{currentMonth}</h2>
+        </div>
+        <div class="slds-col slds-align-middle slds-size_1-of-6">
+            <!-- lightning button icon Next button -->
+            <lightning-button-icon icon-name='utility:chevronright' alternative-text='Next Month' size='medium' title='Next Month' name="Next Month" variant="bare" onclick={handleNextMonthChange}></lightning-button-icon>
+        </div>
+        <div class="slds-col slds-align-middle slds-shrink-none slds-size_2-of-6">
+        <lightning-combobox
+        style="position: relative;bottom: 7px;"
+        name="Year"
+        label=""
+        value={year}
+        placeholder={year}
+        options={yearsLst}
+        onchange={handleSelectYear} ></lightning-combobox>
+        </div>
+    </div>
+
+    <table aria-labelledby="rangeWeekSame_end-month" aria-multiselectable="true" class="slds-datepicker__month" role="grid">
+    <thead>
+    <tr id="rangeWeekSame_end-weekdays">
+        <template for:each={weekLst} for:item="w">
+            <th key={w}  scope="col">
+                <abbr >{w}</abbr>
+                </th>
+        </template>
+    </tr>
+
+
+    </thead>
+    <tbody>
+        <tr class="">
+            <template for:each={DateLstRow1} for:item="d1">
+            <td key={d1.label} class={d1.class}  role="gridcell" data-name={d1.label}>
+                <lightning-button
+                 style={d1.style}
+                  aria-label={d1.label}
+                   name={d1.label}
+                    onclick={handleTd}
+                     variant={d1.variant}
+                     label={d1.dateNo}
+                      class="slds-day"
+                      disabled={d1.disabled}
+                      ></lightning-button>
+            </td>
+            </template>
+        </tr>
+        <tr class="">
+            <template for:each={DateLstRow2} for:item="d2">
+            <td key={d2.label} class={d2.class} role="gridcell">
+                <!-- <button class="slds-button" style="border-radius: 100%; border-color: none;color:black" data-name={d2.label} name={d2.label} onclick={handleTd}>{d2.dateNo}</button> -->
+                <lightning-button style={d2.style}  data-name={d2.label} name={d2.label} onclick={handleTd} variant={d2.variant} label={d2.dateNo} disabled={d2.disabled} class="slds-day"></lightning-button>
+            </td>
+            </template>
+        </tr>
+        <tr class="">
+            <template for:each={DateLstRow3} for:item="d3">
+            <td key={d3.label} class={d3.class}  role="gridcell" >
+                <lightning-button style={d3.style} data-name={d3.label}  name={d3.label} onclick={handleTd} variant={d3.variant} label={d3.dateNo} disabled={d3.disabled} class="slds-day"></lightning-button>
+            </td>
+            </template>
+        </tr>
+        <tr class="slds-has-multi-selection">
+            <template for:each={DateLstRow4} for:item="d4">
+            <td key={d4.label} class={d4.class}  role="gridcell" >
+                <lightning-button style={d4.style} data-name={d4.label}  name={d4.label} onclick={handleTd} variant={d4.variant} label={d4.dateNo} disabled={d4.disabled} class="slds-day"></lightning-button>
+            </td>
+            </template>
+        </tr>
+        <tr class="">
+            <template for:each={DateLstRow5} for:item="d5">
+            <td key={d5.label} class={d5.class}  role="gridcell" >
+                <lightning-button style={d5.style} class="slds-day" name={d5.label} data-name={d5.label}  variant={d5.variant} label={d5.dateNo} disabled={d5.disabled} onclick={handleTd}></lightning-button>
+            </td>
+            </template>
+        </tr>
+        <tr class="">
+            <template for:each={DateLstRow6} for:item="d6">
+            <td key={d6.label} class={d6.class}  role="gridcell"  >
+                <lightning-button style={d6.style} data-name={d6.label} name={d6.label} label={d6.dateNo} variant={d6.variant} onclick={handleTd} disabled={d6.disabled} class="slds-day"></lightning-button>
+            </td>
+            </template>
+        </tr>
+    </tbody>
+    </table>
+    </div>
+    </template>
+    
+</template>

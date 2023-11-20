@@ -1,0 +1,24 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 07-22-2023
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+  <lightning-card>
+    <lightning-button label="timer" onclick={handleClick}></lightning-button>
+    <table class="slds">
+      <tr>
+        <th>Queues</th>
+        <th>WaitTime</th>
+      </tr>
+      <template for:each={queueTiming} for:item="q">
+        <tr key={q.queueName}>
+          <td>{q.queueName}</td>
+          <td>{q.date}</td>
+        </tr>
+      </template>
+    </table>
+  </lightning-card>
+</template>

@@ -1,0 +1,28 @@
+<template>
+    <lightning-card title="Data Table With Modal">
+            <template lwc:if={isTrue}>
+                <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01" class="slds-modal slds-fade-in-open">
+                    <div class="slds-modal__container">
+                      <div class="slds-modal__header">
+                        <h1 id="modal-heading-01" class="slds-modal__title slds-hyphenate">Account Record</h1>
+                      </div>
+                      <div class="slds-modal__content slds-var-p-around_medium" id="modal-content-id-1">
+                             <lightning-record-form
+                             record-id={content.Id}
+                             object-api-name="Account"
+                             layout-type="Full"
+                             mode="readonly"
+                             ></lightning-record-form>
+                      </div>
+                      <div class="slds-modal__footer">
+                        <button class="slds-button slds-button_neutral" aria-label="Cancel and close" onclick={handleCancel}>Cancel</button>
+                      </div>
+                    </div>
+                  </section>
+                  <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+            </template>
+<div class="slds-box slds-var-m-around_medium slds-var-p-around_small">
+    <lightning-datatable key-field="Id" data={data} columns={cols} onrowaction={handleAction}></lightning-datatable>
+</div>
+</lightning-card>
+</template>

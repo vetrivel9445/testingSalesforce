@@ -1,0 +1,30 @@
+<template>
+
+    <div class="slds-combobox_container">
+        <div role="combobox" class="slds-combobox__input slds-has-focus slds-combobox__input-value" 
+        style="background-color: white;width: 250px;padding: .5%;border-radius: 4px;">
+        <div class="slds-grid slds-wrap" onclick={handleClick}>
+            <div class="slds-col slds-size_11-of-12 slds-grow slds-col_bump-right">
+                <label>{label}&nbsp;&nbsp;:&nbsp;&nbsp;</label>
+                <span class="slds-truncate" id="combobox-value-id-102">&nbsp;&nbsp;<b>{selectedValue}</b></span>
+            </div>
+            <div class="slds-col slds-size_1-of-12 slds-shrink">
+                <lightning-button-icon  class="slds-float_right button-icon" icon-name='utility:down' alternative-text='down' variant="bare" size='Medium' title='down'></lightning-button-icon>
+            </div>
+        </div>
+        </div>
+    </div>
+    <template if:true={isClicked}>
+    <div role="listbox" 
+    style="background-color: white;width: 145px;padding: .5%;border-radius: 4px;position: absolute;top:inherit;left:  100px;z-index: 10;
+    border: 0.5px solid #6c6e6f;height: 300px;overflow: scroll;overflow-x: hidden;">
+        <ul class="slds-listbox slds-listbox_vertical" role="presentation">
+            <template for:each={options} for:item="p">
+          <li role="presentation" key={p} class="slds-listbox__item slds-align_absolute-center">
+            <lightning-button class="button" onclick={handleListClick} variant="base" label={p} name={p}></lightning-button>
+          </li>
+        </template>
+        </ul>
+    </div>
+    </template>
+</template>

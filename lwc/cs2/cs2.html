@@ -1,0 +1,22 @@
+<template>
+    <lightning-quick-action-panel header="Clone Action">
+        <lightning-record-edit-form
+        object-api-name={objectApiName}
+        onsubmit={handleSubmit}
+        onsuccess={handleSuccess}
+        >
+        <template for:each={data} for:item="d">
+            <div key={d.Id}>
+                <lightning-input-field field-name={fields.FirstName} name="FirstName" value={d.FirstName} onchange={handleChange}></lightning-input-field>
+                <lightning-input-field field-name={fields.LastName} name="LastName" value={d.LastName} onchange={handleChange}></lightning-input-field>
+                <lightning-input-field field-name={fields.Salutation} name="Salutation" value={d.Salutation} onchange={handleChange}></lightning-input-field>
+                <lightning-input-field field-name={fields.AccountName} name="AccountName" value={d.AccountId} onchange={handleChange}></lightning-input-field>
+                <lightning-input-field field-name={fields.Phone} name="Phone" value={d.Phone} onchange={handleChange}></lightning-input-field>
+                <lightning-input-field field-name={fields.Email} name="Email" value={d.Email} onchange={handleChange}></lightning-input-field>
+            </div>
+        </template>
+<lightning-button label="Save" variant="brand" type="submit"></lightning-button>
+<lightning-button label="clear" variant="destructive" class="slds-var-p-around_small" onclick={handleClick}></lightning-button>
+</lightning-record-edit-form>
+</lightning-quick-action-panel>
+</template>
